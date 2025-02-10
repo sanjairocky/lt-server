@@ -1,16 +1,15 @@
-import log from 'book';
-import Koa from 'koa';
-import tldjs from 'tldjs';
-import Debug from 'debug';
-import http from 'http';
-import { hri } from 'human-readable-ids';
-import Router from 'koa-router';
+const Koa  = require('koa');
+const tldjs = require('tldjs');
+const http = require('http');
+const Debug = require('debug');
+const { hri } = require('human-readable-ids');
+const Router = require('koa-router');
 
-import ClientManager from './lib/ClientManager';
+const ClientManager = require('./lib/ClientManager');
 
 const debug = Debug('localtunnel:server');
 
-export default function(opt) {
+module.exports = function(opt) {
     opt = opt || {};
 
     const validHosts = (opt.domain) ? [opt.domain] : undefined;
